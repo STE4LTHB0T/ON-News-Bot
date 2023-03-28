@@ -2,6 +2,8 @@ import discord, uuid, requests, shutil, PIL
 from discord.ext import commands
 from discord import File
 from PIL import Image, ImageDraw, ImageFont
+from dotenv import load_dotenv
+load_dotenv('./*.env')
 
 client = commands.Bot(command_prefix = 'on ', intents = discord.Intents.all())
 
