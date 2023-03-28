@@ -1,4 +1,4 @@
-import discord, uuid, requests, shutil, PIL
+import discord, uuid, os, requests, shutil, PIL
 from discord.ext import commands
 from discord import File
 from PIL import Image, ImageDraw, ImageFont
@@ -10,6 +10,7 @@ client = commands.Bot(command_prefix = 'on ', intents = discord.Intents.all())
 @client.event
 async def on_ready():
     print("Bot is ready!")
+    await client.change_presence(activity=discord.Game(name="as a reporter📰"))
 
 @client.command()
 async def save(ctx):
@@ -53,4 +54,4 @@ async def text(ctx,*, write:str):
     final_file="news.png"
     await ctx.send(file=File(final_file))
     
-    client.run(os.getenv('TOKEN'))
+client.run(os.getenv('TOKEN'))
